@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammad Fanani</title>
+    <!-- Font Awesome untuk Icon Vektor Modern -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='11' stroke='%238b5cf6' stroke-width='2'/%3E%3Ctext x='12' y='17' font-family='Plus Jakarta Sans, sans-serif' font-size='14' font-weight='700' fill='%23ec4899' text-anchor='middle'%3Ef%3C/text%3E%3C/svg%3E"
+    />
+    <!-- Google Fonts: Space Grotesk & Plus Jakarta Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- CORE CONFIGURATION --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --bg-dark: #09090b;
+        --card-bg: rgba(18, 18, 24, 0.7);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --accent-purple: #8b5cf6;
+        --accent-pink: #ec4899;
+        --text-main: #f4f4f5;
+        --text-muted: #a1a1aa;
+        --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(139, 92, 246, 0.15) 0%,
+          rgba(0, 0, 0, 0) 70%
+        );
+        top: -100px;
+        right: -100px;
+        z-index: -1;
+      }
+
+      /* --- PERMANENT TOP NAVBAR --- */
+      header {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 1200px;
+        padding: 16px 32px;
+        background: rgba(10, 10, 12, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--card-border);
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        letter-spacing: -0.5px;
+      }
+
+      .navbar {
+        display: flex;
+        gap: 30px;
+      }
+
+      .navbar a {
+        font-size: 14px;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s ease;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+        color: var(--text-main);
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 140px 8% 60px;
+        max-width: 1400px;
+        margin: 0 auto;
+        gap: 40px;
+      }
+
+      .hero-content {
+        max-width: 650px;
+      }
+
+      /* Perbaikan: Badge dengan Buletan Kelap-Kelip (Tanpa Ikon) */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 16px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 50px;
+        color: #60a5fa;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 24px;
+      }
+
+      .badge .badge-dot {
+        width: 8px;
+        height: 8px;
+        background: #3b82f6;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 8px #3b82f6;
+        animation: pulse-animation 1.5s infinite;
+      }
+
+      .hero-content h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -1.5px;
+        margin-bottom: 20px;
+      }
+
+      .hero-content h1 span {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 35px;
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn-primary {
+        padding: 14px 32px;
+        background: var(--gradient-primary);
+        color: white;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.3s ease;
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        padding: 14px 32px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text-main);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent-purple);
+      }
+
+      .hero-avatar-wrapper {
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .hero-avatar-wrapper::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        background: var(--gradient-primary);
+        border-radius: 24px;
+        z-index: -1;
+        opacity: 0.7;
+        filter: blur(8px);
+      }
+
+      .hero-avatar {
+        width: 350px;
+        height: 400px;
+        background: #18181b;
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* --- BENTO GRID SECTIONS --- */
+      section.main-wrapper {
+        padding: 40px 8% 100px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+      }
+
+      .section-header h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      /* Perbaikan: Mengatur flex pada bento card agar space terbagi rata */
+      .bento-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 24px;
+        padding: 32px;
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Menjaga tombol mengunci di bawah */
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 0.3s ease;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(139, 92, 246, 0.3);
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+      .span-3 {
+        grid-column: span 3;
+      }
+
+      .bento-card h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        margin-bottom: 12px;
+        color: var(--text-main);
+      }
+
+      .bento-card p {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      /* --- SKILLS LIST DESIGN --- */
+      .focus-list {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .focus-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .focus-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--accent-purple);
+      }
+
+      .focus-item i {
+        font-size: 18px;
+        color: #a78bfa;
+      }
+
+      /* --- CURRENT ACTIVITY DESIGN --- */
+      .status-pulse {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #f43f5e;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .status-pulse span {
+        width: 8px;
+        height: 8px;
+        background: #f43f5e;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 8px #f43f5e;
+        animation: pulse-animation 1.5s infinite;
+      }
+
+      /* Global pulse animation shareable */
+      @keyframes pulse-animation {
+        0% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .tag {
+        padding: 8px 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        font-size: 13px;
+      }
+
+      .social-row {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px; /* Memberi jarak aman di atas baris tombol */
+        width: 100%;
+      }
+
+      .social-box {
+        flex: 1;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        text-align: center;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 20px;
+        transition: 0.3s;
+      }
+
+      .social-box:hover {
+        background: var(--gradient-primary);
+        color: white;
+      }
+
+      /* --- FILTER TABS SYSTEM --- */
+      .filter-tabs {
+        display: flex;
+        gap: 12px;
+        margin: 20px 0 28px;
+        border-bottom: 1px solid var(--card-border);
+        padding-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      .tab-btn {
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .tab-btn:hover {
+        color: var(--text-main);
+        border-color: var(--text-muted);
+      }
+
+      .tab-btn.active {
+        background: var(--gradient-primary);
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+      }
+
+      /* --- GRID CONTAINER (KUNCI 3 KOLOM KONSISTEN) --- */
+      .project-display {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .mini-card {
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        overflow: hidden;
+        display: block;
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+      }
+
+      .mini-card.hidden {
+        display: none;
+      }
+
+      .mini-thumb {
+        width: 100%;
+        height: 180px;
+        background: #1f1f23;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .mini-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .thumb-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(9, 9, 11, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        transition: 0.3s ease;
+      }
+
+      .mini-card:hover .thumb-overlay {
+        opacity: 1;
+      }
+
+      .action-btn {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .action-btn:hover {
+        background: var(--gradient-primary);
+        border-color: transparent;
+        transform: scale(1.1);
+      }
+
+      .mini-meta {
+        padding: 18px;
+      }
+
+      .mini-meta .card-tag {
+        font-size: 11px;
+        text-transform: uppercase;
+        color: var(--accent-pink);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      .mini-meta h4 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-main);
+      }
+
+      /* --- LIGHTBOX MODAL --- */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(9, 9, 11, 0.95);
+        backdrop-filter: blur(8px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 85%;
+        max-height: 80vh;
+        border-radius: 12px;
+        border: 1px solid var(--card-border);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: var(--text-muted);
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        padding: 40px 8%;
+        max-width: 1400px;
+        margin: 0 auto;
+        border-top: 1px solid var(--card-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      /* --- RESPONSIVE BREAKDOWN --- */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .span-2,
+        .span-3 {
+          grid-column: span 2;
+        }
+        .project-display {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          top: 15px;
+          width: 92%;
+          padding: 12px 20px;
+          border-radius: 50px;
+        }
+        .logo {
+          font-size: 18px;
+        }
+        .navbar {
+          gap: 15px;
+        }
+        .navbar a {
+          font-size: 13px;
+        }
+        .hero {
+          flex-direction: column-reverse;
+          padding-top: 140px;
+          text-align: center;
+        }
+        .hero-content h1 {
+          font-size: 42px;
+        }
+        .cta-group {
+          justify-content: center;
+        }
+
+        /* Perbaikan Grid & Kartu Bento Utama di HP */
+        .bento-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .span-2,
+        .span-3 {
+          grid-column: span 1;
+        }
+
+        /* FIX 1: Perbaikan Grid Proyek agar Mengunci Gambar di Layar HP */
+        .project-display {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .mini-card {
+          width: 100%;
+          overflow: hidden;
+          border-radius: 16px;
+        }
+        .mini-thumb {
+          width: 100%;
+          height: 200px;
+          position: relative;
+          overflow: hidden;
+        }
+        .mini-thumb img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        /* FIX 2: Memaksa Overlay Tombol Mata & Rantai Langsung Muncul di Mobile */
+        .thumb-overlay {
+          opacity: 1 !important;
+          background: rgba(9, 9, 11, 0.4) !important;
+        }
+        .action-btn {
+          transform: scale(1) !important;
+          background: rgba(9, 9, 11, 0.8) !important;
+          border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        footer {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR FIXED -->
+    <header>
+      <a href="#" class="logo">fnn.space</a>
+      <nav class="navbar">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#explore" class="nav-item">Explore</a>
+        <a href="#contact-box" class="nav-item">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <!-- Perbaikan: Badge Bulatan Kelap-kelip Biru Murni Tanpa Ikon -->
+        <div class="badge">
+          <span class="badge-dot"></span> Lagi Fokus Belajar
+        </div>
+        <h1>Hi, I'm Mohammad <span>Fanani</span></h1>
+        <p>
+          Lulusan SMK jurusan Rekayasa Perangkat Lunak tahun 2025. Saat ini aku
+          lagi fokus mengisi waktu harian untuk belajar mandiri dan memperdalam
+          kemampuan bahasa Inggris.
+        </p>
+        <div class="cta-group">
+          <a href="#portofolio" class="btn-primary">Lihat Portofolio</a>
+          <a href="#contact-box" class="btn-secondary">Hubungi Saya</a>
+        </div>
+      </div>
+      <div class="hero-avatar-wrapper">
+        <div class="hero-avatar">
+          <img src="img/profil.webp" alt="Mohammad Fanani" />
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE / BENTO GRID CONTAINER -->
+    <section class="main-wrapper" id="explore">
+      <div class="section-header">
+        <h2>Selected Craft & Space</h2>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Box 1: Tentang / Profil Singkat -->
+        <div class="bento-card span-2">
+          <div>
+            <h3>About Me</h3>
+            <p>
+              Aku lulusan SMK tahun 2025 jurusan Rekayasa Perangkat Lunak. Aku
+              punya ketertarikan di bidang teknologi dan suka bikin sistem atau
+              aplikasi simpel untuk kebutuhan sehari-hariku.
+            </p>
+            <p style="margin-top: 10px">
+              Pas sekolah dulu, aku cukup aktif dan pernah menjabat sebagai
+              Wakil Ketua OSIS. Bisa dibilang aku juga cukup berprestasi saat
+              sekolah. Saat ini aku belum bisa kuliah karena beberapa alasan
+              tertentu, tapi aku punya harapan besar untuk bisa mulai kuliah
+              tahun depan.
+            </p>
+          </div>
+          <!-- <div class="tech-tags">
+            <div class="tag">PHP</div>
+            <div class="tag">MySQL</div>
+            <div class="tag">HTML & CSS</div>
+            <div class="tag">JavaScript</div>
+          </div> -->
+        </div>
+
+        <!-- Box 2: Kontak Sosial (Perbaikan Jarak/Space Layout) -->
+        <div class="bento-card" id="contact-box">
+          <div>
+            <h3>Get In Touch</h3>
+            <p>
+              Kalau mau ngobrol atau sekadar kenalan, bisa hubungi aku di sini.
+            </p>
+          </div>
+          <div class="social-row">
+            <a
+              href="https://discordapp.com/users/670985386310500402/"
+              target="_blank"
+              class="social-box"
+              ><i class="fa-brands fa-discord"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/fananimn/"
+              target="_blank"
+              class="social-box"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Box 3: Skill Yang Dimiliki -->
+        <div class="bento-card">
+          <h3>My Skills</h3>
+          <div class="focus-list">
+            <div class="focus-item">
+              <i class="fa-solid fa-code"></i>
+              <div>
+                <h4 style="font-size: 14px">Dasar Pemrograman</h4>
+                <p style="font-size: 12px">Pemrograman dasar.</p>
+              </div>
+            </div>
+            <div class="focus-item">
+              <i class="fa-solid fa-table"></i>
+              <div>
+                <h4 style="font-size: 14px">Spreadsheet</h4>
+                <p style="font-size: 12px">Pengolahan formula sheet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Box 4: Aktivitas Saat Ini -->
+        <div class="bento-card span-2">
+          <h3>Aktivitas Saat Ini</h3>
+          <div class="status-pulse"><span></span> Learning Mode</div>
+          <p>
+            Saat ini kegiatanku murni diisi untuk belajar persiapan ujian masuk
+            universitas dan memperdalam bahasa Inggris. Sekarang aku lagi aktif
+            mengambil program kelas grammar di salah satu lembaga kursus di
+            Kampung Inggris, Pare.
+          </p>
+          <p style="margin-top: 10px; font-size: 14px" class="text-muted">
+            Sebelumnya, aku sempat mencicipi dunia kerja dengan menjadi Retail
+            Assistant di PT. Eigerindo MPI selama kurang lebih 11 bulan.
+            Akhir-akhir ini aku juga mulai menaruh rasa penasaran dengan dunia
+            keuangan, walaupun belum menemukan alasan kuat di baliknya.
+          </p>
+        </div>
+
+        <!-- Box 5: TAB PENGALAMAN BERKATEGORI -->
+        <div class="bento-card span-3" id="portofolio">
+          <div>
+            <h3>What I've Done</h3>
+            <p>Sharing riwayat pencapaianku selama ini.</p>
+          </div>
+
+          <!-- MENU TAB FILTER -->
+          <div class="filter-tabs">
+            <button class="tab-btn active" onclick="filterSelection('all')">
+              Semua
+            </button>
+            <button class="tab-btn" onclick="filterSelection('project')">
+              Proyek Aplikasi
+            </button>
+            <button class="tab-btn" onclick="filterSelection('work')">
+              Pengalaman Kerja
+            </button>
+            <button class="tab-btn" onclick="filterSelection('any')">
+              Lainya
+            </button>
+          </div>
+
+          <!-- AREA DISPLAY UTAMA -->
+          <div class="project-display">
+            <!-- ecobyke -->
+            <div class="mini-card project">
+              <div class="mini-thumb">
+                <img src="img/ecobyke.jpg" alt="Ecobyke" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/ecobyke.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <a
+                    href="https://drive.google.com/file/d/14Z3UOjutIg2EuCPWrqAo4U2nLs51uhAZ/view?usp=sharing"
+                    target="_blank"
+                    class="action-btn"
+                    ><i class="fa-solid fa-link"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Proyek</span>
+                <h4>Ecobyke - Web for Bike Rentals</h4>
+              </div>
+            </div>
+
+            <!-- Food Hub -->
+            <div class="mini-card project">
+              <div class="mini-thumb">
+                <img src="img/demo.jpg" alt="Food Hub" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/demo.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <a
+                    href="https://fananim.github.io/foodordering/"
+                    target="_blank"
+                    class="action-btn"
+                    ><i class="fa-solid fa-link"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Proyek</span>
+                <h4>Food Hub - Self Ordering App</h4>
+              </div>
+            </div>
+
+            <!-- osis -->
+            <div class="mini-card any">
+              <div class="mini-thumb">
+                <img src="img/osis.jpg" alt="" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/osis.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Sertifikat</span>
+                <h4>Wakil Ketua Osis</h4>
+              </div>
+            </div>
+
+            <!-- dn -->
+            <div class="mini-card any">
+              <div class="mini-thumb">
+                <img src="img/dn24(2).png" alt="" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/dn24.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Event</span>
+                <h4>Ketua Pel - DN SMK BM</h4>
+              </div>
+            </div>
+
+            <!-- lks -->
+            <div class="mini-card any">
+              <div class="mini-thumb">
+                <img src="img/lks.jpg" alt="" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/lks.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Sertifikat</span>
+                <h4>LKS - Web Tech</h4>
+              </div>
+            </div>
+
+            <!-- lakon -->
+            <div class="mini-card project">
+              <div class="mini-thumb">
+                <img src="img/lakon.jpg" alt="SOP Store" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/lakon.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <a
+                    href="https://layanankonsultasi.github.io/Lakon/"
+                    target="_blank"
+                    class="action-btn"
+                    ><i class="fa-solid fa-link"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Proyek</span>
+                <h4>Manage Stock</h4>
+              </div>
+            </div>
+
+            <!-- track -->
+            <div class="mini-card project">
+              <div class="mini-thumb">
+                <img src="img/track.jpg" alt="SOP Store" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/track.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <a
+                    href="https://dcnp.vercel.app/"
+                    target="_blank"
+                    class="action-btn"
+                    ><i class="fa-solid fa-link"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Proyek</span>
+                <h4>Manage Stock</h4>
+              </div>
+            </div>
+
+            <!-- sop -->
+            <div class="mini-card project">
+              <div class="mini-thumb">
+                <img src="img/sop.jpg" alt="SOP Store" />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="openPreview('img/sop.jpg')"
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Proyek</span>
+                <h4>SOP - Manage Files</h4>
+              </div>
+            </div>
+
+            <!-- Item 3: Pengalaman Kerja -->
+            <div class="mini-card work">
+              <div class="mini-thumb">
+                <img
+                  src="https://www.eigeradventure.com/blog/wp-content/uploads/2025/08/Untitled-design-74.jpg"
+                  alt="Eiger Store"
+                />
+                <div class="thumb-overlay">
+                  <button
+                    class="action-btn"
+                    onclick="
+                      openPreview(
+                        'https://www.eigeradventure.com/blog/wp-content/uploads/2025/08/Untitled-design-74.jpg',
+                      )
+                    "
+                  >
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mini-meta">
+                <span class="card-tag">Karier</span>
+                <h4>Retail Assistant - PT. Eigerindo MPI</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL OVERLAY PREVIEW -->
+    <div class="lightbox" id="imageLightbox">
+      <span class="lightbox-close" onclick="closePreview()">&times;</span>
+      <img class="lightbox-content" id="previewTarget" src="" alt="Preview" />
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 fnn.space.</p>
+      <p>Kediri, Indonesia</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+      // 2. Tab Category Filter
+      function filterSelection(category) {
+        const cards = document.querySelectorAll(".mini-card");
+        const buttons = document.querySelectorAll(".filter-tabs .tab-btn");
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        cards.forEach((card) => {
+          if (category === "all") {
+            card.classList.remove("hidden");
+          } else {
+            if (card.classList.contains(category)) {
+              card.classList.remove("hidden");
+            } else {
+              card.classList.add("hidden");
+            }
+          }
+        });
+      }
+
+      // 3. Image Lightbox Logic
+      const lightbox = document.getElementById("imageLightbox");
+      const previewTarget = document.getElementById("previewTarget");
+
+      function openPreview(imgUrl) {
+        previewTarget.src = imgUrl;
+        lightbox.classList.add("active");
+      }
+
+      function closePreview() {
+        lightbox.classList.remove("active");
+        previewTarget.src = "";
+      }
+
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closePreview();
+      });
+
+      // 4. Navbar Highlighting Scroll Control
+      const navItems = document.querySelectorAll(".nav-item");
+      const sections = document.querySelectorAll("section");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (window.scrollY >= sectionTop - 250) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href").includes(current)) {
+            item.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
